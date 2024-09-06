@@ -1,7 +1,9 @@
 {
-  "sunkong": [
+  "accounts": [
     {
-      "query_id": "user=%7B%22id%22%3A6594855648%2C%22first_name%22%3A%22Obito%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22uchihaObitoAntiSenju%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&chat_instance=6419540457282930756&chat_type=sender&auth_date=1725462629&hash=694f8a78b75cf4fb96f26f01eda52a4ba30aa94bcf1494a58e0bbec5fdeb194a"
+      "query_id": "user=%7B%22id%22%3A7194869909%2C%22first_name%22%3A%22X%22%2C%22last_name%22%3A%22X%22%2C%22username%22%3A%22freakz666%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&chat_instance=-4906777519212880996&chat_type=supergroup&start_param=FE4E2F48B&auth_date=1725532349&hash=0d56ba18a795ecf7dbb0d2633b7c6e06b11910afa77e4667e10a59bd5ee09a7c",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3MTk0ODY5OTA5fQ.79zqUaKjOetviPf83XMqbsUB96z5bdGsMGJfucTWGtk",
+      "username": "freakz666"
     }
   ]
 }
