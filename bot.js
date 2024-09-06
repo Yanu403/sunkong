@@ -9,6 +9,13 @@ const readline = require('readline');
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
+function loadAccounts() {
+  const data = fs.readFileSync(path.resolve(__dirname, 'data.json'), 'utf-8');
+  return JSON.parse(data).accounts;
+}
+
+const accounts = loadAccounts();
+
 // Constants
 const headers = {
   authority: '',
@@ -253,7 +260,8 @@ async function claimFriend() {
 }
 
 // Main Function
-async function main() {
+async function main(account) {
+  await setCurrentProfile(account);
   await login();
   await doQuest();
   const friendClaims = await checkFriendClaim();
@@ -262,9 +270,11 @@ async function main() {
 
 (async () => {
   await setCurrentProject('sunkong');
-  await setCurrentProfile({
-    query_id: 'user=%7B%22id%22%3A7194869909%2C%22first_name%22%3A%22X%22%2C%22last_name%22%3A%22X%22%2C%22username%22%3A%22freakz666%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&chat_instance=-4906777519212880996&chat_type=supergroup&start_param=FE4E2F48B&auth_date=1725532349&hash=0d56ba18a795ecf7dbb0d2633b7c6e06b11910afa77e4667e10a59bd5ee09a7c', // Silakan ganti dengan query_id Anda
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3MTk0ODY5OTA5fQ.79zqUaKjOetviPf83XMqbsUB96z5bdGsMGJfucTWGtk', // Silakan ganti dengan token Anda
-  });
-  await main();
+
+  for (const account of accounts) {
+    logs(`Memulai proses untuk akun: ${account.username}`);
+    await main(account);
+    logs(`Selesai memproses akun: ${account.username}`);
+    await delay(5);  // Penundaan di antara akun untuk menghindari deteksi
+  }
 })();
